@@ -21,10 +21,10 @@ if __name__ == '__main__':
     mp.freeze_support()
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data', type=str, default='mesh/024.ply')
-    parser.add_argument('--scan', type=int, default=24)
+    parser.add_argument('--data', type=str, default='')
+    parser.add_argument('--scan', type=int, default=1)
     parser.add_argument('--mode', type=str, default='mesh', choices=['mesh', 'pcd'])
-    parser.add_argument('--dataset_dir', type=str, default='/Users/zjy/dtu_o')
+    parser.add_argument('--dataset_dir', type=str, default='')
     parser.add_argument('--downsample_density', type=float, default=0.2)
     parser.add_argument('--patch_size', type=float, default=60)
     parser.add_argument('--max_dist', type=float, default=20)
@@ -128,6 +128,4 @@ if __name__ == '__main__':
     mean_d2s = dist_d2s[dist_d2s < max_dist].mean()
     mean_s2d = dist_s2d[dist_s2d < max_dist].mean()
     over_all = (mean_d2s + mean_s2d) / 2
-    # print(mean_d2s, mean_s2d, over_all)
-    print(over_all)
-    # 24: 0.562798 1.089442 0.826120
+    print(mean_d2s, mean_s2d, over_all)
