@@ -24,7 +24,7 @@ Download the STL point clouds and Sample Set and prepare the ground truth folder
 
 Run the evaluation script (e.g. scan24, mesh mode)
 ```
-python eval.py --data <input> --scan 24 --mode mesh --dataset_dir <dataset_dir>
+python eval.py --data <input> --scan 24 --mode mesh --dataset_dir <dataset_dir> --vis_out_dir <out_dir_for_visualization>
 ```
 
 ## Discussion on randomness
@@ -53,5 +53,8 @@ We evaluate a set of meshes from Colmap and compare the results. We run our scri
 | avg | 0.0153%       | 1.017711 | 1.017867 |                 |
 
 
-## TODO
-- visualize the error by coloring point clouds
+## Error visualization
+`vis_xxx_d2s.ply` and `vis_xxx_s2d.ply` are error visualizations.
+- Blue: Out of bounding box or ObsMask
+- Green: Errors larger than threshold (20)
+- White to Red: Errors counted in the reported statistics
